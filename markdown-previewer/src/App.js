@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+class Dashboard extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    return(
+      <div>
+        Markdown Previewer Dashboard
+        </div>
+    );
+  }
+}
+
 class App extends Component {
   render() {
     return (
