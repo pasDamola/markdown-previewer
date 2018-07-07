@@ -16,6 +16,21 @@ class Dashboard extends React.Component{
   }
 }
 
+class Previewer extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    return(
+      <div>
+        Markdown Previewer Dashboard
+        </div>
+    );
+  }
+}
+
+
 class App extends Component {
   render() {
     return (
