@@ -8,7 +8,7 @@ class TextArea extends Component {
   render() {
     return (
       <div style={{marginTop : 50}}>
-        <textarea id="editor"></textarea>
+        <textarea id="editor"value={this.props.text} onChange={this.props.handleChange}  />
       </div>
     );
   }
@@ -19,7 +19,7 @@ class Element extends Component {
     return(
       <div>
         <p>
-         Me and Her!
+         {this.props.text}
         </p>
 
         </div>
@@ -28,11 +28,27 @@ class Element extends Component {
 }
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      textarea : '',
+      element : 'Markdown Previewer!!'
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
+  handleChange(event) {
+    this.setState({
+      element: event.target.value
+    })
+  }
+  
   render() {
     return (
       <div className="App">
-      <TextArea />
-      <Element />
+      <TextArea text={this.state.element} handleChange={this.handleChange}/>
+      <Element text={this.state.element} />
       </div>
     );
   }
