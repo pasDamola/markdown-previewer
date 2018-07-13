@@ -1,53 +1,56 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Marked from 'marked';
 import './App.css';
 
 
 
 class TextArea extends Component {
+  style(a){
+   return {
+   fontSize : a,
+   marginTop : 50
+    }
+ }
   render() {
     return (
-      <div style={{marginTop : 50}}>
+      <div style={this.style(20)}>
         <textarea id="editor"value={this.props.text} onChange={this.props.handleChange}  />
       </div>
     );
   }
 }
 
-class Element extends Component {
-  render(){
-    return(
-      <div>
+
+const Element = (props) => {
+  return(
+    <div id="preview">
         <p>
-         {this.props.text}
+         {props.text}
         </p>
 
         </div>
-    );
-  }
+  );
 }
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
+  state = {
       textarea : '',
       element : 'Markdown Previewer!!'
     }
-    this.handleChange = this.handleChange.bind(this);
-  }
+   
+  
 
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       element: event.target.value
     })
-  }
+  };
   
   render() {
     return (
       <div className="App">
-      <TextArea text={this.state.element} handleChange={this.handleChange}/>
+      <TextArea text={this.state.element} handleChange={this.handleChange} />
       <Element text={this.state.element} />
       </div>
     );

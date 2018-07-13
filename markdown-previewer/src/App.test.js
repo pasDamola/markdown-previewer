@@ -1,4 +1,5 @@
 import React from 'react';
+import Marked from 'marked';
 import ReactDOM from 'react-dom';
 import App from './App';
 
